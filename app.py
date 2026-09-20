@@ -496,7 +496,7 @@ with tab5:
             out = generate_viral(p)
             if out:
                 st.markdown("---")
-                st.markdown(res)
+                st.markdown(out)
         else:
             st.warning("Please enter a topic.")
     st.markdown('</div>', unsafe_allow_html=True)
