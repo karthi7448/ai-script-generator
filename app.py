@@ -509,15 +509,15 @@ with tab6:
     # Selection control
     selected_plan = st.radio(
         "Select Your Plan (Watch the 3D card light up):",
-        ["Basic Plan (₹49)", "Standard Plan (₹149) 🔥", "Premium VIP (₹299) 👑"],
+        ["Basic Plan (₹99)", "Standard Plan (₹299) 🔥", "Premium VIP (₹499) 👑"],
         horizontal=True
     )
     
-    is_basic = "49" in selected_plan
-    is_standard = "149" in selected_plan
-    is_vip_plan = "299" in selected_plan
+    is_basic = "99" in selected_plan
+    is_standard = "299" in selected_plan
+    is_vip_plan = "499" in selected_plan
     
-    amount = "49" if is_basic else ("149" if is_standard else "299")
+    amount = "99" if is_basic else ("299" if is_standard else "499")
     tier_name = "Basic" if is_basic else ("Standard" if is_standard else "Premium")
     
     # Class highlights: selected box gets glowing neon line
@@ -530,8 +530,8 @@ with tab6:
         st.markdown(f'''
         <div class="card-3d-box {b_class}" style="text-align:center;">
             <h3>🥉 Basic Plan</h3>
-            <h1 style="color:#00f2fe;">₹49</h1>
-            <p style="color:#AAA; font-size:14px;">50 AI Script Generations<br>YouTube Shorts & Reels<br>High-CTR Titles & Hooks</p>
+            <h1 style="color:#00f2fe;">₹99</h1>
+            <p style="color:#AAA; font-size:14px;">10 AI Script Generations<br>YouTube Shorts & Reels<br>High-CTR Titles & Hooks</p>
         </div>
         ''', unsafe_allow_html=True)
     with col2:
@@ -539,8 +539,8 @@ with tab6:
         <div class="card-3d-box {s_class}" style="text-align:center;">
             <span style="background:#00f2fe; color:#000; font-size:11px; font-weight:800; padding:2px 10px; border-radius:12px;">MOST POPULAR 🔥</span>
             <h3 style="margin-top:6px;">🥈 Standard Plan</h3>
-            <h1 style="color:#00f2fe;">₹149</h1>
-            <p style="color:#AAA; font-size:14px;">300 AI Script Generations<br>All Platforms (YT, IG, FB)<br>Full Viral Page Blueprint</p>
+            <h1 style="color:#00f2fe;">₹299</h1>
+            <p style="color:#AAA; font-size:14px;">30 AI Script Generations<br>All Platforms (YT, IG, FB)<br>Full Viral Page Blueprint</p>
         </div>
         ''', unsafe_allow_html=True)
     with col3:
@@ -548,7 +548,7 @@ with tab6:
         <div class="card-3d-box {v_class}" style="text-align:center;">
             <span style="background:linear-gradient(90deg, #ff4b8b, #f093fb); color:#fff; font-size:11px; font-weight:800; padding:2px 10px; border-radius:12px;">LIFETIME PASS 👑</span>
             <h3 style="margin-top:6px;">🥇 Premium VIP</h3>
-            <h1 style="color:#ff4b8b;">₹299</h1>
+            <h1 style="color:#ff4b8b;">₹499</h1>
             <p style="color:#AAA; font-size:14px;">UNLIMITED Generations Forever<br>All Future Features<br>1-on-1 VIP Creator Support</p>
         </div>
         ''', unsafe_allow_html=True)
