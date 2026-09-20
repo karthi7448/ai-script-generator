@@ -496,7 +496,9 @@ with tab5:
             out = generate_viral(p)
             if out:
                 st.markdown("---")
-                st.markdown(out)
+                st.markdown(res)
+        else:
+            st.warning("Please enter a topic.")
     st.markdown('</div>', unsafe_allow_html=True)
 
 # Tab 6: Subscriptions & Dynamic 3D Neon Selection
@@ -559,7 +561,7 @@ with tab6:
     col_p1, col_p2 = st.columns(2)
     with col_p1:
         st.markdown(f"#### 📱 Scan to Pay **₹{amount}** via GPay / PhonePe")
-        st.image(qr_code_url, width=220, caption="Scan with Google Pay / PhonePe / Paytm / BHIM")
+        st.image(qr_code_url, width=220, caption=f"Scan with Google Pay / PhonePe / Paytm / BHIM")
         st.markdown(f"**UPI ID:** `{DEFAULT_UPI_ID}`")
         st.markdown(f'<a href="{upi_string}" target="_blank" style="display:inline-block; background:linear-gradient(90deg, #00f2fe, #4facfe); color:#000; padding:10px 22px; border-radius:12px; text-decoration:none; font-weight:800; box-shadow:0 6px 20px rgba(0,242,254,0.4);">📲 Click to Pay via UPI App (Mobile)</a>', unsafe_allow_html=True)
         
