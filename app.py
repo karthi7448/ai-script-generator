@@ -156,7 +156,7 @@ db = load_db()
 
 # ----------------- Config & Secrets -----------------
 api_key = st.secrets.get("GEMINI_API_KEY", None)
-DEFAULT_UPI_ID = st.secrets.get("UPI_ID", "yourname@upi")  # Ungaloda UPI ID inga podunga
+DEFAULT_UPI_ID = st.secrets.get("UPI_ID", "yourname@upi")  # Ungaloda real UPI ID inga podalam
 UPI_NAME = "TaskPilot AI"
 
 if "user_email" not in st.session_state:
@@ -372,4 +372,208 @@ with tab_fb:
     
     col_f1, col_f2 = st.columns()
     with col_f1:
-        fb_topic =
+        fb_topic = st.text_input("Story / Discussion Topic:", placeholder="e.g. How a college dropout built a $1M business using drones", key="fb_top")
+    with col_f2:
+        fb_lang = st.selectbox("Language:", GLOBAL_LANGUAGES, index=0, key="fb_lng")
+        
+    if st.button("Generate Facebook Viral Content 🚀", key="btn_fb", use_container_width=True):
+        if fb_topic.strip():
+            p = f"""
+            Write a viral Facebook video script and accompanying long-form narrative post for: {fb_topic} in {fb_lang}.
+            Make it emotionally compelling, easy to relate to, and design the final paragraph to provoke hundreds of constructive comments and shares.
+            """
+            result = generate_viral_content(p)
+            if result:
+                st.markdown("---")
+                st.markdown(result)
+        else:
+            st.warning("Please enter a topic.")
+    st.markdown('</div>', unsafe_allow_html=True)
+
+# 4. Best Upload Times
+with tab_times:
+    st.markdown('<div class="gemini-card">', unsafe_allow_html=True)
+    st.markdown("### ⏰ Best Worldwide & Indian Peak Uploading Hours")
+    st.write("Publishing during these critical windows gives the initial velocity needed to trip the algorithm:")
+    
+    t_c1, t_c2, t_c3 = st.columns(3)
+    with t_c1:
+        st.markdown("""
+        #### 📺 YouTube Peak Windows
+        * **India (IST):** 12:00 PM – 2:00 PM & 6:00 PM – 9:00 PM
+        * **US / Global (EST):** 2:00 PM – 5:00 PM
+        * **Best Days:** Thursday, Friday, Saturday
+        * *Sensei Tip: Upload as Unlisted 1-2 hours before so the 4K render and auto-captions process cleanly.*
+        """)
+    with t_c2:
+        st.markdown("""
+        #### 📸 Instagram Reels Windows
+        * **India (IST):** 8:30 AM – 9:30 AM & 7:30 PM – 10:00 PM
+        * **US / Global (EST):** 9:00 AM – 12:00 PM & 7:00 PM – 9:00 PM
+        * **Best Days:** Wednesday, Thursday, Sunday
+        * *Sensei Tip: Post when your specific followers are active (check IG Insights -> Total Followers).*
+        """)
+    with t_c3:
+        st.markdown("""
+        #### 📘 Facebook Watch Windows
+        * **India (IST):** 1:00 PM – 3:30 PM & 7:00 PM – 9:30 PM
+        * **US / Global (EST):** 1:00 PM – 4:00 PM
+        * **Best Days:** Tuesday, Thursday, Friday
+        * *Sensei Tip: Vertical 1:1 or 9:16 video clips with on-screen burned-in subtitles perform 3x better.*
+        """)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+# 5. Viral Page Blueprint (VIP)
+with tab_audit:
+    st.markdown('<div class="gemini-card">', unsafe_allow_html=True)
+    st.markdown("### 🔥 360° Social Media Viral Page Blueprint & Audit (VIP)")
+    
+    curr_user = db["users"].get(st.session_state.user_email, {"is_vip": False})
+    if not curr_user.get("is_vip", False):
+        st.warning("🔒 This advanced audit suite is reserved for Basic, Standard, and Premium Subscribers.")
+        st.markdown("""
+        **What you unlock with a Subscription:**
+        * ✅ Complete Channel/Profile Bio Overhaul (10x your Follower Conversion Rate)
+        * ✅ 30-Day Step-by-Step Content Calendar (Exact topics to post Mon–Sun)
+        * ✅ Algorithmic Retention Checklist to hit the Explore & Recommendation feeds
+        * ✅ Audience Monetization Funnel (Convert passive viewers into paying clients/customers)
+        
+        👉 **Head over to the Subscriptions tab to unlock instant VIP access!**
+        """)
+    else:
+        st.success("🔓 VIP Sensei Active! Enter your channel details:")
+        v_niche = st.text_input("Your Specific Niche / Industry:", placeholder="e.g. Video Editing, Tech Gadgets, Finance, Fitness")
+        col_v1, col_v2 = st.columns(2)
+        with col_v1:
+            v_platform = st.selectbox("Target Platform:", ["YouTube Channel", "Instagram Page", "Cross-Platform (YouTube + Instagram)"])
+        with col_v2:
+            v_goal = st.selectbox("Primary Objective:", ["Grow first 10,000 Organic Followers", "Monetization & AdSense Maximization", "Sell High-Ticket Courses / Services"])
+            
+        if st.button("Generate My 30-Day Viral Blueprint 🚀", use_container_width=True):
+            p = f"""
+            You are a world-class social media viral growth consultant.
+            Niche: {v_niche}
+            Platform: {v_platform}
+            Goal: {v_goal}
+
+            Produce an exhaustive, actionable Master Blueprint:
+            1. High-Converting Bio & Profile Header Formula
+            2. First 30 Days Content Calendar (Exact video topics, angles, and formats)
+            3. 3 Algorithm Watch-Time Hacks to push content to millions of non-followers
+            4. 3 Costly Mistakes that immediately kill page reach
+            5. Step-by-step Monetization Funnel to generate revenue from Day 1
+            """
+            res = generate_viral_content(p)
+            if res:
+                st.markdown("---")
+                st.markdown(res)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+# 6. Subscriptions & Instant UPI Pay (3 Tiers: Basic, Standard, Premium)
+with tab_sub:
+    st.markdown('<div class="gemini-card">', unsafe_allow_html=True)
+    st.markdown("""
+    <div style="text-align: center; margin-bottom: 25px;">
+        <h2>💎 Choose Your Growth Plan</h2>
+        <p style="color: #A0AEC0;">Affordable pricing designed for independent creators and aspiring influencers worldwide.</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    c_p1, c_p2, c_p3 = st.columns(3)
+
+    with c_p1:
+        st.markdown("""
+        <div class="pricing-card">
+            <h3>🥉 Basic Plan</h3>
+            <h1 style="color: #4facfe;">₹49 <span style="font-size: 14px; color: #888;">($1 USD)</span></h1>
+            <p style="color: #AAA;">Perfect for beginner creators testing the waters.</p>
+            <hr style="border-color: rgba(255,255,255,0.1);">
+            <ul style="color: #DDD; font-size: 14px; line-height: 1.8;">
+                <li>✅ <b>50 AI Script Generations</b></li>
+                <li>✅ YouTube Shorts & Reels Generator</li>
+                <li>✅ Viral Hooks & High-CTR Titles</li>
+                <li>❌ Viral Page Setup Blueprint</li>
+                <li>❌ Priority 1-on-1 Support</li>
+            </ul>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with c_p2:
+        st.markdown("""
+        <div class="pricing-card pricing-card-popular">
+            <span style="background:#4facfe; color:#000; font-size:11px; font-weight:800; padding:2px 10px; border-radius:20px;">MOST POPULAR 🔥</span>
+            <h3 style="margin-top:10px;">🥈 Standard Plan</h3>
+            <h1 style="color: #00f2fe;">₹149 <span style="font-size: 14px; color: #888;">($2 USD)</span></h1>
+            <p style="color: #AAA;">For serious creators building daily viral momentum.</p>
+            <hr style="border-color: rgba(255,255,255,0.1);">
+            <ul style="color: #DDD; font-size: 14px; line-height: 1.8;">
+                <li>✅ <b>300 AI Script Generations</b></li>
+                <li>✅ All Platforms (YouTube, IG, FB)</li>
+                <li>✅ Best Worldwide Uploading Times</li>
+                <li>✅ <b>Complete Viral Page Blueprint</b></li>
+                <li>✅ Email & WhatsApp Assistance</li>
+            </ul>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with c_p3:
+        st.markdown("""
+        <div class="pricing-card">
+            <span style="background:linear-gradient(90deg, #FF6EA7, #B56BFF); color:#FFF; font-size:11px; font-weight:800; padding:2px 10px; border-radius:20px;">LIFETIME PASS 👑</span>
+            <h3 style="margin-top:10px;">🥇 Premium VIP</h3>
+            <h1 style="color: #FF6EA7;">₹299 <span style="font-size: 14px; color: #888;">($4 USD)</span></h1>
+            <p style="color: #AAA;">Unlimited viral power for agencies and top creators.</p>
+            <hr style="border-color: rgba(255,255,255,0.1);">
+            <ul style="color: #DDD; font-size: 14px; line-height: 1.8;">
+                <li>✅ <b>UNLIMITED AI Generations Forever</b></li>
+                <li>✅ All Current & Future AI Capabilities</li>
+                <li>✅ Complete 30-Day Channel Blueprints</li>
+                <li>✅ Direct 1-on-1 VIP Creator Support</li>
+            </ul>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.markdown("---")
+    
+    # Interactive Payment Selector
+    selected_tier = st.radio(
+        "Select Plan to Generate QR Scanner:",
+        ["Basic Plan (₹49)", "Standard Plan (₹149) 🔥", "Premium VIP (₹299) 👑"],
+        horizontal=True
+    )
+    
+    tier_amt = "49" if "49" in selected_tier else ("149" if "149" in selected_tier else "299")
+    tier_name = "Basic" if "49" in selected_tier else ("Standard" if "149" in selected_tier else "Premium")
+
+    upi_pay_string = f"upi://pay?pa={DEFAULT_UPI_ID}&pn={urllib.parse.quote(UPI_NAME)}&am={tier_amt}&cu=INR&tn={urllib.parse.quote(f'TaskPilot {tier_name}')}"
+    qr_url = f"https://api.qrserver.com/v1/create-qr-code/?size=250x250&data={urllib.parse.quote(upi_pay_string)}"
+
+    col_q1, col_q2 = st.columns(2)
+    with col_q1:
+        st.markdown(f"#### 📱 Scan to Pay **₹{tier_amt}** with GPay / PhonePe / Paytm")
+        st.image(qr_url, width=220, caption="Safe & Instant UPI Payment")
+        st.markdown(f"**UPI ID:** `{DEFAULT_UPI_ID}`")
+        st.markdown(f'<a href="{upi_pay_string}" target="_blank" style="display:inline-block; background:linear-gradient(90deg, #4facfe, #00f2fe); color:#000; padding:10px 22px; border-radius:12px; text-decoration:none; font-weight:700; margin-top:8px;">📲 Click to Pay via UPI App (Mobile)</a>', unsafe_allow_html=True)
+
+    with col_q2:
+        st.markdown("#### ⚡ Instant Activation")
+        st.write("Completed your payment? Submit your details to receive instant VIP unlock:")
+        u_email_input = st.text_input("Your Registered Email:", value=st.session_state.user_email, placeholder="yourname@gmail.com", key="pay_em")
+        utr_code = st.text_input("12-Digit UPI Transaction ID / UTR Number:", placeholder="e.g. 425678912345", key="pay_utr")
+        
+        if st.button("Submit Payment & Get VIP Code 🚀", use_container_width=True):
+            if len(utr_code.strip()) >= 6 and "@" in u_email_input:
+                db["payment_logs"].append({
+                    "email": u_email_input.strip().lower(),
+                    "utr": utr_code.strip(),
+                    "plan": tier_name,
+                    "amount": tier_amt
+                })
+                vip_unlock_code = "VIP2026"
+                save_db(db)
+                st.success(f"🎉 Payment Received! Your Activation Passcode is: **`{vip_unlock_code}`**")
+                st.info("Copy this code and enter it into the left sidebar to unlock unlimited access right now!")
+            else:
+                st.error("Please provide a valid email and 12-digit UTR from your payment app.")
+
+    st.markdown('</div>', unsafe_allow_html=True)
