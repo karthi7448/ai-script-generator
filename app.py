@@ -440,7 +440,7 @@ with tab4:
         <p style="color: #A0AEC0; font-size: 0.9rem;">Maximum initial algorithmic velocity for India (IST) & Worldwide.</p>
     ''', unsafe_allow_html=True)
     
-    col1, col2, col3 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
     with col1:
         st.markdown("""
         #### 📺 YouTube Windows
