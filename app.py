@@ -70,23 +70,6 @@ st.markdown("""
         position: relative;
         overflow: hidden;
     }
-    .anime-avatar {
-        font-size: 55px;
-        background: radial-gradient(circle, #7f00ff, #e100ff);
-        border-radius: 50%;
-        width: 75px;
-        height: 75px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 0 25px rgba(225, 0, 255, 0.6);
-        animation: pulseAvatar 3s infinite alternate;
-        flex-shrink: 0;
-    }
-    @keyframes pulseAvatar {
-        0% { transform: scale(1); box-shadow: 0 0 20px rgba(225, 0, 255, 0.5); }
-        100% { transform: scale(1.05); box-shadow: 0 0 35px rgba(79, 172, 254, 0.8); }
-    }
     .anime-bubble {
         color: #E2E8F0;
         font-size: 0.95rem;
@@ -116,11 +99,6 @@ st.markdown("""
             flex-direction: column;
             text-align: center;
             padding: 16px;
-        }
-        .anime-avatar {
-            width: 60px;
-            height: 60px;
-            font-size: 40px;
         }
     }
 </style>
@@ -255,15 +233,36 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# ----------------- ANIME SENSEI INTRO & GUIDANCE -----------------
+# ----------------- ANIME SENSEI INTRO (100% Guaranteed SVG Graphic) -----------------
 st.markdown("""
 <div class="anime-guide-container">
-    <div class="anime-avatar">🥷</div>
+    <svg width="75" height="75" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="border-radius: 50%; box-shadow: 0 0 25px rgba(0, 242, 254, 0.7); flex-shrink: 0; background: linear-gradient(135deg, #1f1c2c, #928dab);">
+        <circle cx="50" cy="50" r="46" fill="#131722" stroke="#00f2fe" stroke-width="2"/>
+        <path d="M22 42C24 25 36 15 50 15C64 15 76 25 78 42C72 32 60 30 50 34C40 30 28 32 22 42Z" fill="#ff4b8b"/>
+        <ellipse cx="50" cy="56" rx="26" ry="24" fill="#ffdfba"/>
+        <path d="M24 40C25 55 28 62 30 65C28 55 27 46 26 40Z" fill="#ff4b8b"/>
+        <path d="M76 40C75 55 72 62 70 65C72 55 73 46 74 40Z" fill="#ff4b8b"/>
+        <path d="M40 32C45 42 43 48 41 52C46 45 48 38 46 32Z" fill="#ff6ea7"/>
+        <path d="M60 32C55 42 57 48 59 52C54 45 52 38 54 32Z" fill="#ff6ea7"/>
+        <ellipse cx="38" cy="54" rx="6" ry="8" fill="#111"/>
+        <ellipse cx="62" cy="54" rx="6" ry="8" fill="#111"/>
+        <ellipse cx="38" cy="55" rx="5" ry="6" fill="#00f2fe"/>
+        <ellipse cx="62" cy="55" rx="5" ry="6" fill="#00f2fe"/>
+        <circle cx="36" cy="52" r="2.5" fill="#fff"/>
+        <circle cx="60" cy="52" r="2.5" fill="#fff"/>
+        <circle cx="40" cy="57" r="1.2" fill="#fff"/>
+        <circle cx="64" cy="57" r="1.2" fill="#fff"/>
+        <ellipse cx="31" cy="62" rx="4" ry="2" fill="#ff7675" opacity="0.6"/>
+        <ellipse cx="69" cy="62" rx="4" ry="2" fill="#ff7675" opacity="0.6"/>
+        <path d="M46 65C48 68 52 68 54 65" stroke="#d63031" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M20 28L30 14L34 26" fill="#00f2fe" stroke="#fff" stroke-width="1.5"/>
+        <path d="M80 28L70 14L66 26" fill="#00f2fe" stroke="#fff" stroke-width="1.5"/>
+    </svg>
     <div class="anime-bubble">
-        <h4 style="margin: 0 0 5px 0; color: #FFF; font-weight: 700;">Kon'nichiwa Creator! I am Kira, your AI Viral Sensei ✨</h4>
+        <h4 style="margin: 0 0 5px 0; color: #FFF; font-weight: 700; font-size: 1.15rem;">✨ Kon'nichiwa! I am Kira, your Anime AI Viral Sensei</h4>
         <p style="margin: 0; color: #CBD5E0; font-size: 0.93rem;">
-            Want your next video to hit 100K+ views? <b>Step 1:</b> Enter your topic below. <b>Step 2:</b> Pick your platform & language. 
-            <b>Step 3:</b> Hit Generate! I use Google Gemini's multimodal reasoning to craft hooks that stop the scroll in the first 3 seconds! 🚀
+            Ready to make your content blow up? <b>1.</b> Pick your platform tab below. <b>2.</b> Enter your video topic and target language. 
+            <b>3.</b> Hit Generate! I engineer scroll-stopping 3-second hooks and high-retention scripts that the algorithm loves! 🚀
         </p>
     </div>
 </div>
