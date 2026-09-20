@@ -38,7 +38,7 @@ if st.button("Generate Script 🚀"):
 
             with st.spinner("Generating your script..."):
                 response = client.models.generate_content(
-                    model="gemini-2.5-flash",
+                    model="gemini-3.6-flash",
                     contents=prompt
                 )
                 st.subheader("Your Viral Script:")
