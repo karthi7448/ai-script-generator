@@ -187,7 +187,7 @@ def save_db(data):
 
 db = load_db()
 api_key = st.secrets.get("GEMINI_API_KEY", None)
-DEFAULT_UPI_ID = st.secrets.get("UPI_ID", "yourname@upi")  # Ungaloda UPI ID inga podalam
+DEFAULT_UPI_ID = st.secrets.get("UPI_ID", "karthickak746-1@oksbi")  # Ungaloda UPI ID inga podalam
 
 if "user_email" not in st.session_state:
     st.session_state.user_email = ""
@@ -555,14 +555,14 @@ with tab6:
 
     st.markdown("---")
     
-    upi_string = f"upi://pay?pa={DEFAULT_UPI_ID}&pn=TaskPilotAI&am={amount}&cu=INR&tn=TaskPilot{tier_name}"
+    upi_string = f"upi://pay?pa={karthickak746-1@oksbi}&pn=TaskPilotAI&am={amount}&cu=INR&tn=TaskPilot{tier_name}"
     qr_code_url = f"https://api.qrserver.com/v1/create-qr-code/?size=250x250&data={urllib.parse.quote(upi_string)}"
     
     col_p1, col_p2 = st.columns(2)
     with col_p1:
         st.markdown(f"#### 📱 Scan to Pay **₹{amount}** via GPay / PhonePe")
         st.image(qr_code_url, width=220, caption=f"Scan with Google Pay / PhonePe / Paytm / BHIM")
-        st.markdown(f"**UPI ID:** `{DEFAULT_UPI_ID}`")
+        st.markdown(f"**UPI ID:** `{karthickak746-1@oksbi}`")
         st.markdown(f'<a href="{upi_string}" target="_blank" style="display:inline-block; background:linear-gradient(90deg, #00f2fe, #4facfe); color:#000; padding:10px 22px; border-radius:12px; text-decoration:none; font-weight:800; box-shadow:0 6px 20px rgba(0,242,254,0.4);">📲 Click to Pay via UPI App (Mobile)</a>', unsafe_allow_html=True)
         
     with col_p2:
