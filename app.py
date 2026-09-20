@@ -358,7 +358,7 @@ with tab1:
         <p style="color: #A0AEC0; font-size: 0.9rem;">Engineered for 80%+ View Duration and Maximum CTR.</p>
     ''', unsafe_allow_html=True)
     
-    col1, col2, col3 = st.columns()
+    col1, col2, col3 = st.columns(3)
     with col1:
         yt_t = st.text_input("YouTube Topic or Title:", placeholder="e.g. 5 AI Tools to Automate Online Business", key="y_t")
     with col2:
@@ -386,7 +386,7 @@ with tab2:
         <p style="color: #A0AEC0; font-size: 0.9rem;">Triggers Explore Feed recommendation and high save/share ratio.</p>
     ''', unsafe_allow_html=True)
     
-    col1, col2, col3 = st.columns()
+    col1, col2, col3 = st.columns(3)
     with col1:
         ig_t = st.text_input("Reel Topic / Hook:", placeholder="e.g. 3 Mobile Video Editing Hacks in CapCut", key="i_t")
     with col2:
@@ -414,7 +414,7 @@ with tab3:
         <p style="color: #A0AEC0; font-size: 0.9rem;">Emotional storytelling and viral community engagement.</p>
     ''', unsafe_allow_html=True)
     
-    col1, col2 = st.columns()
+    col1, col2 = st.columns(2)
     with col1:
         fb_t = st.text_input("Facebook Story / Topic:", placeholder="e.g. An inspiring story of building a drone delivery startup", key="f_t")
     with col2:
@@ -440,7 +440,7 @@ with tab4:
         <p style="color: #A0AEC0; font-size: 0.9rem;">Maximum initial algorithmic velocity for India (IST) & Worldwide.</p>
     ''', unsafe_allow_html=True)
     
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3 = st.columns(2)
     with col1:
         st.markdown("""
         #### 📺 YouTube Windows
