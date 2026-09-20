@@ -555,7 +555,7 @@ with tab6:
 
     st.markdown("---")
     
-    upi_string = f"upi://pay?pa={karthickak746-1@oksbi}&pn=TaskPilotAI&am={amount}&cu=INR&tn=TaskPilot{tier_name}"
+    upi_string = f"upi://pay?pa=karthickak746-1@oksbi&pn=TaskPilotAI&am={amount}&cu=INR&tn=TaskPilot{tier_name}"
     qr_code_url = f"https://api.qrserver.com/v1/create-qr-code/?size=250x250&data={urllib.parse.quote(upi_string)}"
     
     col_p1, col_p2 = st.columns(2)
